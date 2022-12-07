@@ -25,7 +25,7 @@ def main():
         elif rounds == "C Z\n":
             score = 3 + 3 + score
 
-    print(score)
+    print(f"Part 1: {score}")
 
 if __name__ == "__main__":
     main()
