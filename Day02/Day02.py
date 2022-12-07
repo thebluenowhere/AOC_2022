@@ -1,34 +1,31 @@
-#!/usr/bin/env python3
+#!usr/bin/python3
 
-def get_input(filename):
-    with open(filename, 'r') as f:
-        contents = f.read()
-        return contents
-
-def main(contents):
-    data = []
+def main():
     score = 0
-    loss = 0
-    draw = 3
-    win = 6
-    R = 1
-    P = 2
-    S = 3
-    A = R
-    B = P
-    C = S
-    X = A
-    Y = B
-    Z = C
-    print(Z)
-    shape = [R, P, S]
+    f = open('input.txt', 'r')
+    for line in f:
+        rounds = line
 
-    for line in contents.split('\n'):
-        data.append(line)
-        for group in data:
-            if group[0] == R and group[1] == S:
-                score += (win + R)
+        if rounds == "A X\n":
+            score = 3 + 1 + score
+        elif rounds == "A Y\n":
+            score = 6 + 2 + score
+        elif rounds == "A Z\n":
+            score = 0 + 3 + score
+        elif rounds == "B X\n":
+            score = 0 + 1 + score
+        elif rounds == "B Y\n":
+            score = 3 + 2 + score
+        elif rounds == "B Z\n":
+            score = 6 + 3 + score
+        elif rounds == "C X\n":
+            score = 6 + 1 + score
+        elif rounds == "C Y\n":
+            score = 0 + 2 + score
+        elif rounds == "C Z\n":
+            score = 3 + 3 + score
+
+    print(score)
 
 if __name__ == "__main__":
-    contents = get_input('input.txt')
-    main(contents)
+    main()
