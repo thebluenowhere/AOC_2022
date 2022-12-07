@@ -7,15 +7,15 @@ def get_input(filename):
 
 def part_one(contents):
     total = 0
-    data = []
+    data = set()
     data2 = []
     print(len(contents))
     for line in contents:
         comp1, comp2 = line[:int(len(line)/2)], line[int(len(line)/2):]
         for i in comp1:
             if i in comp2:
-                data.append(i)
-    print(len(data))
+                data.add(i)
+    print(data)
     for l in data:
         if ord(l) >= 97 and ord(l) <= 122:
             data2.append(ord(l) - 96)
