@@ -6,16 +6,29 @@ def get_input(filename):
         return contents
 
 def main(contents):
-    shape = {'R': 1, 'P': 2, 'S': 3 }
-    opponent = {'R': 'A', 'P': 'B', 'S': 'C'}
-    move = {'R': 'X', 'P': 'Y', 'S': 'Z'}
-    lose = 0
+    data = []
+    score = 0
+    loss = 0
     draw = 3
     win = 6
+    R = 1
+    P = 2
+    S = 3
+    A = R
+    B = P
+    C = S
+    X = A
+    Y = B
+    Z = C
+    print(Z)
+    shape = [R, P, S]
 
-    for group in contents.split():
-        print(group)
+    for line in contents.split('\n'):
+        data.append(line)
+        for group in data:
+            if group[0] == R and group[1] == S:
+                score += (win + R)
 
 if __name__ == "__main__":
-    filename = get_input('input.txt')
+    contents = get_input('input.txt')
     main(contents)
