@@ -7,24 +7,24 @@ def get_input(filename):
 
 def part_one(contents):
     total = 0
-    data = set()
+    data = []
     data2 = []
-    print(len(contents))
     for line in contents:
         comp1, comp2 = line[:int(len(line)/2)], line[int(len(line)/2):]
         for i in comp1:
             if i in comp2:
-                data.add(i)
-    print(data)
-    for l in data:
-        if ord(l) >= 97 and ord(l) <= 122:
-            data2.append(ord(l) - 96)
-        else:
-            data2.append(ord(l) - 38)
-    print(data2)
+                data.append(i)
+                
+            for l in data:
+                if ord(l) >= 97 and ord(l) <= 122:
+                    data2.append(ord(l) - 96)
+                else:
+                    data2.append(ord(l) - 38)
+            break
+
     for n in data2:
         total += n
-    print(total)     
+    print(f"Part 1: {total}")    
 
 def part_two(contents):
     # 
